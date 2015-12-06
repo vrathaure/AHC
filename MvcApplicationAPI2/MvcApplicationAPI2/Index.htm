@@ -1,0 +1,99 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<!-- <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">-->
+<link rel="stylesheet" href="http://cdn.oesmith.co.uk/morris-0.5.1.css">
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
+<script src="http://cdn.oesmith.co.uk/morris-0.5.1.min.js"></script>
+ <style type="text/css">
+ #line-chart{
+  min-height: 250px;
+}
+</style>
+  <title>Product App</title>
+</head>
+<body>
+  <div>
+    <h2>All Orders</h2>
+    <ul id="orders" />
+
+
+  </div>
+  <div>
+    <h2>Search by ID</h2>
+    <input type="text" id="orderId" size="5" />
+    <input type="button" value="Search" onclick="find();" />
+    <p id="order" />
+    <table id="tableId" class="table" border='1px'>
+    <tr>
+        <th>Period Label</th>
+        <th>Ordered</th>
+        <th>Shipped</th>
+        <th>TotalOrderedAmount</th>
+        <th>TotalShippedAmount</th>
+    </tr>
+</table>
+<h3 class="text-primary text-center">
+    Morris js charts
+  </h3>
+  <div class"row">
+    <div class="col-sm-6 text-center">
+       <label class="label label-success">Line Chart</label>
+      <div id="line-chart"></div>
+    </div>
+  </div>
+
+  </div>
+
+  <script src="Scripts/jquery-1.7.1.min.js" type="text/javascript"></script>
+  <script type="text/javascript">
+      $(document).ready(function () {
+          $("#tableId").addClass("hidden");
+          $.getJSON('Handler1.ashx', function (data) {
+              if (data) {
+                  var len = data.length;
+                  var txt = "";
+                  if (len > 0) {
+                      for (var i = 0; i < len; i++) {
+                          txt += "<tr><td>" + data[i].PeriodLabel + "</td><td>" + data[i].Ordered + "</td>";
+                          txt += "<td>" + data[i].Shipped + "</td><td>" + data[i].TotalOrderedAmount + "</td>";
+                          txt += "<td>" + data[i].TotalShippedAmount + "</td></tr>";
+                      }
+
+                      drawChart(data);
+                      if (txt != "") {
+                          $("#tableId").append(txt).removeClass("hidden");
+                      }
+                  }
+              }
+          });
+      });
+      function drawChart(data) {
+      
+    config = {
+        data: data,
+        xkey: 'PeriodLabel',
+        ykeys: ['TotalOrderedAmount', 'TotalShippedAmount'],
+        labels: ['Total Ordered Amount', 'Total Shipped Amount'],
+        ymin:'auto[8000]',
+        fillOpacity: 0.6,
+        hideHover: 'auto',
+        behaveLikeLine: true,
+        resize: true,
+        pointFillColors: ['#ffffff'],
+        pointStrokeColors: ['black'],
+        lineColors: ['gray', 'red']
+    };
+
+          config.element = 'line-chart';
+          Morris.Line(config);
+      }
+//           function formatItem(item) {
+//                    return item.PeriodLabel + ': $' + item.TotalOrderedAmount;
+//                }
+//      });
+//     
+  </script>
+</body>
+</html>
