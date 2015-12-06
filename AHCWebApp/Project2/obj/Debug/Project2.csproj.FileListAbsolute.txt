@@ -54,6 +54,5 @@ C:\Vasudha\GitRepo\AHCWebApp\Project2\bin\System.Web.Razor.xml
 C:\Vasudha\GitRepo\AHCWebApp\Project2\bin\System.Web.WebPages.xml
 C:\Vasudha\GitRepo\AHCWebApp\Project2\bin\System.Web.WebPages.Deployment.xml
 C:\Vasudha\GitRepo\AHCWebApp\Project2\bin\System.Web.WebPages.Razor.xml
-C:\Vasudha\GitRepo\AHCWebApp\Project2\obj\Debug\Project2.csprojResolveAssemblyReference.cache
 C:\Vasudha\GitRepo\AHCWebApp\Project2\obj\Debug\Project2.dll
 C:\Vasudha\GitRepo\AHCWebApp\Project2\obj\Debug\Project2.pdb

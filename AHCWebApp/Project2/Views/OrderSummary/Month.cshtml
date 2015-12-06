@@ -41,23 +41,23 @@
     </table>
 </div>
 
-<table class="table table-striped table-bordered">
+<table class="table table-striped table-bordered ">
     <tbody>
         <tr>
-                    <th>Period</th>
-                    <th>Ordered</th>
-                    <th>Shipped</th>
-                    <th>TotalOrderedAmount</th>
-                    <th>TotalShippedAmount</th>
+                    <th class="col-md-2">Period</th>
+                    <th class="col-md-2">Ordered</th>
+                    <th class="col-md-2">Shipped</th>
+                    <th class="col-md-2">TotalOrderedAmount</th>
+                    <th class="col-md-2">TotalShippedAmount</th>
         </tr>
         @foreach (var item in Model.orders)
         {
                <tr>
-                <td>@item.PeriodLabel</td>
-                <td>@item.Ordered</td>
-                <td>@item.Shipped</td>
-                <td>@item.TotalOrderedAmount</td>
-                <td>@item.TotalShippedAmount</td>
+                <td class="col-md-2">@item.PeriodLabel</td>
+                <td class="col-md-2">@item.Ordered</td>
+                <td class="col-md-2">@item.Shipped</td>
+                <td class="col-md-2">@item.TotalOrderedAmount</td>
+                <td class="col-md-2">@item.TotalShippedAmount</td>
                </tr>
                 
         }
